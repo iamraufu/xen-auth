@@ -1,0 +1,129 @@
+import firebase from 'firebase/app'
+import "firebase/auth";
+import firebaseConfig from './firebase.config';
+// import * as admin from 'firebase-admin';
+
+
+// const app = admin.initializeApp();
+
+export const initializeLoginFramework = () => {
+    if (firebase.apps.length === 0) {
+        firebase.initializeApp(firebaseConfig);
+    }
+}
+
+// export const handleGoogleSignIn = () => {
+//     const googleProvider = new firebase.auth.GoogleAuthProvider();
+//     return firebase.auth().signInWithPopup(googleProvider)
+//         .then(res => {
+//             const { displayName, photoURL, email } = res.user;
+//             const signedInUser = {
+//                 isSignedIn: true,
+//                 name: displayName,
+//                 email: email,
+//                 photo: photoURL,
+//                 success: true
+//             };
+//             setUserToken()
+//             return signedInUser;
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             console.log(err.message);
+//         })
+// }
+
+// const setUserToken =()=>{
+//     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+//         sessionStorage.setItem('token',idToken);
+
+//       }).catch(function(error) {
+//         // Handle error
+//       });
+// }
+
+// export const handleFbSignIn = () => {
+//     const fbProvider = new firebase.auth.FacebookAuthProvider();
+//     return firebase.auth().signInWithPopup(fbProvider).then(function(result) {
+//         // eslint-disable-next-line
+//         var token = result.credential.accessToken;
+//         var user = result.user;
+//         user.success = true;
+//         return user;
+//     }).catch(function(error) {
+//         var errorCode = error.code;
+//         var errorMessage = error.message;
+//         console.log(errorCode, errorMessage)
+//     });
+// }
+
+// export const handleSignOut = () => {
+//     return firebase.auth().signOut()
+//         .then(res => {
+//             const signedOutUser = {
+//                 isSignedIn: false,
+//                 name: '',
+//                 email: '',
+//                 photo: '',
+//                 error: '',
+//                 success: false
+//             }
+//             return signedOutUser;
+//         }).catch(err => {
+//             // An error happened.
+//         });
+// }
+
+export const createUserWithEmailAndPassword = ( phone,name, email, password) => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(res => {
+            const newUserInfo = res.user;
+            newUserInfo.error = '';
+            newUserInfo.success = true;
+            // updateUserName(name);
+            return newUserInfo;
+        })
+        .catch(error => {
+            const newUserInfo = {};
+            newUserInfo.error = error.message;
+            newUserInfo.success = false;
+            return newUserInfo;
+        });
+}
+
+export const signInWithEmailAndPassword = (email, password) => {
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(res => {
+            const newUserInfo = res.user;
+            newUserInfo.error = '';
+            newUserInfo.success = true;
+            return newUserInfo;
+        })
+        .catch(function(error) {
+            const newUserInfo = {};
+            newUserInfo.error = error.message;
+            newUserInfo.success = false;
+            return newUserInfo;
+        });
+}
+
+// export const signInWithPhone = () => {
+//     var admin = require('firebase-admin');
+//     admin.auth().getUserByPhoneNumber(phoneNumber)
+//     .then(user => {
+//         firebase.auth().signInWithEmailAndPassword(user.email, password);
+//     });
+    
+// }
+
+// const updateUserName = name => {
+//     const user = firebase.auth().currentUser;
+
+//     user.updateProfile({
+//         displayName: name
+//     }).then(function() {
+//         console.log('User Name Updated Successfully!')
+//     }).catch(function(error) {
+//         console.log(error)
+//     });
+// }

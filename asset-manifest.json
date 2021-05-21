@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/xen-auth/static/css/main.140b79da.chunk.css",
+    "main.js": "/xen-auth/static/js/main.9518b0a4.chunk.js",
+    "main.js.map": "/xen-auth/static/js/main.9518b0a4.chunk.js.map",
+    "runtime-main.js": "/xen-auth/static/js/runtime-main.15798918.js",
+    "runtime-main.js.map": "/xen-auth/static/js/runtime-main.15798918.js.map",
+    "static/js/2.53e583c5.chunk.js": "/xen-auth/static/js/2.53e583c5.chunk.js",
+    "static/js/2.53e583c5.chunk.js.map": "/xen-auth/static/js/2.53e583c5.chunk.js.map",
+    "static/js/3.07363328.chunk.js": "/xen-auth/static/js/3.07363328.chunk.js",
+    "static/js/3.07363328.chunk.js.map": "/xen-auth/static/js/3.07363328.chunk.js.map",
+    "index.html": "/xen-auth/index.html",
+    "static/css/main.140b79da.chunk.css.map": "/xen-auth/static/css/main.140b79da.chunk.css.map",
+    "static/js/2.53e583c5.chunk.js.LICENSE.txt": "/xen-auth/static/js/2.53e583c5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15798918.js",
+    "static/js/2.53e583c5.chunk.js",
+    "static/css/main.140b79da.chunk.css",
+    "static/js/main.9518b0a4.chunk.js"
+  ]
+}

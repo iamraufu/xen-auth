@@ -1,0 +1,20 @@
+.line {
+    background-color: #000000;
+    width: 48%;
+    height: 1px;
+}
+
+.forgot-password {
+    border: 1px solid black;
+}
+
+.facebook {
+    background-color: #2b6cb0;
+    width: 50%;
+    /* height: 20px; */
+}
+
+.google {
+    background-color: #c53030;
+    width: 50%;
+}

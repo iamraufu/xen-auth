@@ -7,7 +7,7 @@ const EmailOTP = () => {
                   <div className="position-absolute top-50 start-50 translate-middle">
                         <p className='fs-4 text-center'><i class="fas fa-envelope"></i> OTP has been sent your <span className='fw-bold'>EMAIL</span></p>
                         <form style={{ width: '400px' }}>
-                              <input style={{borderBottom:'1px solid #63b3ed'}} className='mt-3 w-100 p-2 font-icon text-center' type="number" name="otp" placeholder="&#xf3cd; Email OTP" />
+                              <input style={{borderBottom:'1px solid #63b3ed'}} className='mt-3 w-100 p-2 font-icon text-center' type="number" name="otp" placeholder="&#xf3cd; Email OTP" required/>
                               <input className='mt-3 w-100 p-2' type="submit" value='Submit' />
                         </form>
                         <div className="d-flex mt-2">

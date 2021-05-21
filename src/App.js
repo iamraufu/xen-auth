@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import LoginWithPhone from './components/Login/LoginWithPhone';
 import EmailOTP from './components/Login/EmailOTP';
 import PhoneOTP from './components/Login/PhoneOTP';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route path='/phone-otp'>
           <PhoneOTP />
+        </Route>
+        <Route path='/*'>
+          <NotFound />
         </Route>
       </Switch>
     </Router>

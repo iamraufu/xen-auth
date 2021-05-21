@@ -1,22 +1,49 @@
 import './SignUp.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { useHistory, useLocation } from 'react-router-dom';
 
 function SignUp() {
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+    phone: ''
+  });
+
+  const handleBlur = (e) => {
+    let isFieldValid = true;
+    if(e.target.name === 'email'){
+      isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
+    }
+    if(e.target.name === 'password'){
+      const isPasswordValid = e.target.value.length > 6;
+      const passwordHasNumber =  /\d{1}/.test(e.target.value);
+      isFieldValid = isPasswordValid && passwordHasNumber;
+    }
+    if(isFieldValid){
+      const newUserInfo = {...user};
+      newUserInfo[e.target.name] = e.target.value;
+      setUser(newUserInfo);
+    }
+    console.log(user)
+  }
+
+  const handleSubmit = (e) => {
+    console.log(e);
+  }
 
   return (
     <div className="auth">
       <div className="position-absolute top-50 start-50 translate-middle">
         <h1 className='fw-bold fs-3'>Create a new account</h1>
-        <form style={{width:'350px'}}>
-          <input className='mt-3 w-100 p-2 font-icon' type="number" name="phone" placeholder="&#xf3cd; Phone number" />
+        <form style={{width:'350px'}} onSubmit={handleSubmit}>
+          <input className='mt-3 w-100 p-2 font-icon' onBlur={handleBlur} type="number" name="phone" placeholder="&#xf3cd; Phone number" required />
           <br />
-          <input className='mt-3 w-100 p-2 font-icon' type="text" name="name" placeholder="&#xf007; Name" />
+          <input className='mt-3 w-100 p-2 font-icon' onBlur={handleBlur} type="text" name="name" placeholder="&#xf007; Name" required />
           <br />
-          <input className='mt-3 w-100 p-2 font-icon' type="email" name="email" placeholder="&#xf0e0; Email" />
+          <input className='mt-3 w-100 p-2 font-icon' onBlur={handleBlur} type="email" name="email" placeholder="&#xf0e0; Email" required />
           <br />
-          <input className='mt-3 w-100 p-2 font-icon' type="password" name="password" placeholder="&#xf084; Password" />
+          <input className='mt-3 w-100 p-2 font-icon' onBlur={handleBlur} type="password" name="password" placeholder="&#xf084; Password" required />
           <br />
           <input className='mt-3 w-100 p-2' type="submit" value='Sign up' />
         </form>
